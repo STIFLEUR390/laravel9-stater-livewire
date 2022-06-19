@@ -14,9 +14,12 @@ use App\Http\Controllers\LanguageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::mailPreview();
 
-Route::get('/', [StaterkitController::class, 'home'])->name('home');
-Route::get('home', [StaterkitController::class, 'home'])->name('home');
+// Route::get('/', [StaterkitController::class, 'home'])->name('home');
+// Route::get('home', [StaterkitController::class, 'home'])->name('home');
+Route::redirect('/', 'login');
+
 // Route Components
 Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');
 Route::get('layouts/full', [StaterkitController::class, 'layout_full'])->name('layout-full');

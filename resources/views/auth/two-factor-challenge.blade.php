@@ -1,6 +1,8 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', '2 Factor Chanllenge')
+@section('title')
+  @lang('2 Factor Chanllenge')
+@endsection
 
 @section('page-style')
   {{-- Page Css files --}}
@@ -14,7 +16,7 @@
       <div class="card mb-0">
         <div class="card-body">
           <a href="#" class="brand-logo">
-            <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            {{-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
               <defs>
                 <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -47,7 +49,9 @@
                 </g>
               </g>
             </svg>
-            <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+            <h2 class="brand-text text-primary ms-1">Vuexy</h2> --}}
+            <img src="{{ asset(config('dev-master.logo')) }}" height="28" alt="{{ config('dev-master.name') }}">
+            <h2 class="brand-text text-primary ms-1">{{ config('dev-master.name') }}</h2>
           </a>
 
 

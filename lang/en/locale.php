@@ -182,5 +182,16 @@ return [
     "Promotional" => "Promotional",
     'Accordion' => 'Accordion',
     "Offcanvas" => "Offcanvas",
-    "message" => "Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups muffin halvah lollipop. Chocolate cake oat cake tiramisu marzipan sugar plum. Donut sweet pie oat cake dragée fruitcake cotton candy lemon drops."
+    "message" => "Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups muffin halvah lollipop. Chocolate cake oat cake tiramisu marzipan sugar plum. Donut sweet pie oat cake dragée fruitcake cotton candy lemon drops.",
+    "Roles & Permission" => "Roles & Permission",
+    "Dashboard" => "Tableau de bord",
+    "Role" => "Role",
+    "Roles" => "Roles",
+    "Permission" => "Permission",
+    "Permissions" => "Permissions",
+    "User Management" => "User Management",
+    "Create a role" => "Create a role",
+    "Create permission" => "Create permission",
+    "All roles" => "All roles",
+    "All permissions" => "All permissions",
 ];

@@ -25,7 +25,8 @@ class Helpers
             'pageHeader' => true,
             'contentLayout' => 'default',
             'blankPage' => false,
-            'defaultLanguage' => 'en',
+            // 'defaultLanguage' => 'en',
+            'defaultLanguage' => 'fr',
             'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'),
         ];
 

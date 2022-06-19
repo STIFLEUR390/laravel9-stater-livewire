@@ -1,6 +1,8 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Login')
+@section('title')
+  @lang('Login')
+@endsection
 
 @section('page-style')
   {{-- Page Css files --}}
@@ -14,7 +16,7 @@
       <div class="card mb-0">
         <div class="card-body">
           <a href="#" class="brand-logo">
-            <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            {{-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
               <defs>
                 <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -46,12 +48,13 @@
                   </g>
                 </g>
               </g>
-            </svg>
-            <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+            </svg> --}}
+            <img src="{{ asset(config('dev-master.logo')) }}" height="28" alt="{{ config('dev-master.name') }}">
+            <h2 class="brand-text text-primary ms-1">{{ config('dev-master.name') }}</h2>
           </a>
 
-          <h4 class="card-title mb-1">Welcome to Vuexy! 👋</h4>
-          <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
+          <h4 class="card-title mb-1">{{ __('Welcome to :name !', ['name'=> config('dev-master.name')]) }} 👋</h4>
+          <p class="card-text mb-2">@lang('Please sign-in to your account and start the adventure')</p>
 
           @if (session('status'))
             <div class="alert alert-success mb-1 rounded-0" role="alert">
@@ -64,7 +67,7 @@
           <form class="auth-login-form mt-2" method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-1">
-              <label for="login-email" class="form-label">Email</label>
+              <label for="login-email" class="form-label">@lang('Email')</label>
               <input type="text" class="form-control @error('email') is-invalid @enderror" id="login-email" name="email"
                 placeholder="john@example.com" aria-describedby="login-email" tabindex="1" autofocus
                 value="{{ old('email') }}" />
@@ -77,10 +80,10 @@
 
             <div class="mb-1">
               <div class="d-flex justify-content-between">
-                <label class="form-label" for="login-password">Password</label>
+                <label class="form-label" for="login-password">@lang('Password')</label>
                 @if (Route::has('password.request'))
                   <a href="{{ route('password.request') }}">
-                    <small>Forgot Password?</small>
+                    <small>@lang('Forgot Password?')</small>
                   </a>
                 @endif
               </div>
@@ -95,23 +98,23 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="remember" name="remember" tabindex="3"
                   {{ old('remember') ? 'checked' : '' }} />
-                <label class="form-check-label" for="remember"> Remember Me </label>
+                <label class="form-check-label" for="remember"> @lang('Remember Me') </label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100" tabindex="4">Sign in</button>
+            <button type="submit" class="btn btn-primary w-100" tabindex="4">@lang('Sign in')</button>
           </form>
 
           <p class="text-center mt-2">
-            <span>New on our platform?</span>
+            <span>@lang('New on our platform?')</span>
             @if (Route::has('register'))
               <a href="{{ route('register') }}">
-                <span>Create an account</span>
+                <span>@lang('Create an account')</span>
               </a>
             @endif
           </p>
 
           <div class="divider my-2">
-            <div class="divider-text">or</div>
+            <div class="divider-text">@lang('or')</div>
           </div>
 
           <div class="auth-footer-btn d-flex justify-content-center">
