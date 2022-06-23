@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StaterkitController;
-use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\{LanguageController, StaterkitController};
+use App\Http\Livewire\Back\Permission\{CreatePermissionComponent, EditPermissionComponent, PermissionComponent};
+use App\Http\Livewire\Back\Role\{CreateRoleComponent, EditRoleComponent, RoleComponent};
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +33,20 @@ Route::get('layouts/blank', [StaterkitController::class, 'layout_blank'])->name(
 // locale Route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', HomeComponent::class)->name('dashboard');
+
+    Route::middleware(['permission:crud permission'])->prefix('permissions')->name('permissions.')->group(function() {
+        Route::get('/', PermissionComponent::class)->name('index');
+        Route::get('/create', CreatePermissionComponent::class)->name('create');
+        Route::get('/edit/{id}', EditPermissionComponent::class)->name('edit');
+    });
+
+    Route::middleware(['crud role'])->prefix('roles')->name('roles.')->group(function() {
+        Route::get('/', RoleComponent::class)->name('index');
+        Route::get('/create', CreateRoleComponent::class)->name('create');
+        Route::get('/edit', EditRoleComponent::class)->name('edit');
+    });
+
+
 });

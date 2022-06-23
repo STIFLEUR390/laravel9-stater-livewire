@@ -1,49 +1,60 @@
 {
-  "menu": [
-    {
-      "url": "home",
-      "name": "Home",
-      "icon": "home",
-      "slug": "home"
-    },
-    {
-      "name": "Page Layouts",
-      "icon": "mail",
-      "slug": "",
-      "badge": "5",
-      "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
-      "submenu": [
+    "menu": [
         {
-          "url": "layouts/collapsed-menu",
-          "name": "Collapsed Menu",
-          "icon": "circle",
-          "slug": "collapsed-menu"
+            "url": "dashboard",
+            "name": "Dashboard",
+            "icon": "home",
+            "slug": "dashboard",
+            "permissions": "base"
         },
         {
-          "url": "layouts/full",
-          "name": "Layout Full",
-          "icon": "circle",
-          "slug": "layout-full"
+            "navheader": "Roles & Permission",
+            "slug": "",
+            "permissions": "crud permission|crud role"
         },
         {
-          "url": "layouts/without-menu",
-          "name": "Without Menu",
-          "icon": "circle",
-          "slug": "without-menu"
+            "name": "Permissions",
+            "icon": "shield",
+            "slug": "",
+            "permissions": "crud permission",
+            "submenu": [
+              {
+                "url": "/permissions",
+                "name": "All permissions",
+                "icon": "circle",
+                "slug": "all-permissions",
+                "permissions": "crud permission"
+              },
+              {
+                "url": "/permissions/create",
+                "name": "Create permission",
+                "icon": "circle",
+                "slug": "create-permission",
+                "permissions": "crud permission"
+              }
+            ]
         },
         {
-          "url": "layouts/empty",
-          "name": "Layout Empty",
-          "icon": "circle",
-          "slug": "layout-empty"
-        },
-        {
-          "url": "layouts/blank",
-          "name": "Layout Blank",
-          "icon": "circle",
-          "slug": "layout-blank"
+            "name": "Roles",
+            "icon": "shield",
+            "slug": "",
+            "permissions": "crud role",
+            "submenu": [
+              {
+                "url": "roles",
+                "name": "All roles",
+                "icon": "circle",
+                "slug": "all-roles",
+                "permissions": "crud role"
+              },
+              {
+                "url": "roles/create",
+                "name": "Create a role",
+                "icon": "circle",
+                "slug": "create-a-role",
+                "permissions": "crud role"
+              }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

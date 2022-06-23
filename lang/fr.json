@@ -895,5 +895,7 @@
     "Enter the Artisan command": "Entrez la commande artisan",
     "The command must not contain": "la commande ne doit pas contenir",
     "Incorrect command": "Commande incorrect",
+    "Select a role": "Sélectionner un rôle",
+    "Select a permission": "Sélectionner une permission",
     "": ""
 }

@@ -39,8 +39,7 @@ return [
     |
     */
 
-    // 'layout' => 'layouts.app',
-    'layout' => 'layouts.livewire.contentLayoutMaster',
+    'layout' => 'layouts.app',
 
     /*
     |--------------------------------------------------------------------------

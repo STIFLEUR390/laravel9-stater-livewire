@@ -1,0 +1,78 @@
+->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<div class="dropdown">
+                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="#">
+                                            <i data-feather="edit-2" class="me-50"></i>
+                                            <span>Edit</span>
+                                        </a>
+                                        <a class="dropdown-item bg-danger" href="#">
+                                            <i data-feather="trash" class="me-50"></i>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit me-50"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Sweetalert
+
+$this->emit('swal:modal', [
+    'type'  => 'success',
+    'title' => config('dev-master.name'),
+    'text'  => "This is a success message",
+    'timeout' => 10000 // optionnel
+]);
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+Sweetalert confirm deletion
+
+protected $listeners = ['delete' => 'deleteCourse'];
+
+public function confirmDeletion($id)
+{
+    $this->emit("swal:confirm", [
+        'type'        => 'warning',
+        'title'       => __('Are you sure?'),
+        'text'        => __("You won't be able to revert this!"),
+        'confirmText' => __('Yes, delete!'),
+        'method'      => 'delete',
+        'params'      => $id, // optional, send params to success confirmation
+        'callback'    => '', // optional, fire event if no confirmed
+    ]);
+}
+
+public function deleteCourse($id)
+{
+    Course::find($id)->delete();
+
+    $this->emit('swal:alert', [
+        'icon' => 'success',
+        'type'    => 'success',
+        'title'   => config('dev-master.name'),
+        'text'  => "This is a success message",
+        'timeout' => 10000 // optionnel
+    ]);
+}
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+Toast
+
+$this->emit('swal:alert', [
+    'icon' => 'success',
+    'title' => config('dev-master.name'),
+    'text'  => '👋 Jelly-o macaroon brownie tart ice cream croissant jelly-o apple pie.',
+    'timeout' => 10000
+]);
