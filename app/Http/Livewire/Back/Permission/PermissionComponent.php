@@ -13,12 +13,24 @@ class PermissionComponent extends Component
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['delete' => 'deletePermission'];
 
+    public $search = '';
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $breadcrumbs = [
             ['link' => 'permission', 'name' => __('Permissions')]
         ];
-        $permissions = Permission::orderBy('name')->paginate(7);
+
+        if (!empty($this->search)) {
+            $permissions = Permission::where('name', 'like', '%'.$this->search.'%')->orderBy('name')->paginate(7);
+        } else {
+            $permissions = Permission::orderBy('name')->paginate(7);
+        }
         return view('livewire.back.permission.permission-component', compact('permissions'))->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
     }
 

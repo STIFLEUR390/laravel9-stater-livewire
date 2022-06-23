@@ -4,7 +4,7 @@
     </div>
     {{-- <div class="card-datatable table-responsive mx-1"> --}}
         <div class="input-group input-group-merge my-1 mx-2" style="width: 96%;">
-            <input type="text" class="form-control search-product" id="shop-search" placeholder="Search Product" aria-label="Search..." aria-describedby="shop-search" />
+            <input type="text" class="form-control search-product" id="shop-search" wire:model='search' placeholder="@lang('Search a permission')" aria-label="Search..." aria-describedby="shop-search" />
             <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
         </div>
         <div class="table-responsive">
