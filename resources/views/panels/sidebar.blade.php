@@ -82,7 +82,7 @@ $configData = Helper::applClasses();
                         @if ($authUser->hasAnyPermission(explode('|', $menu->permissions)))
                             <li
                                 class="nav-item {{ Route::currentRouteName() === $menu->slug ? 'active' : '' }} {{ $custom_classes }}">
-                                <a href="{{ isset($menu->url) ? url($menu->url) : '#' }}" class="d-flex align-items-center" target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
+                                <a href="{{ isset($menu->url) ? route($menu->url) : '#' }}" class="d-flex align-items-center" target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
                                     <i data-feather="{{ $menu->icon }}"></i>
                                     <span class="menu-title text-truncate">{{ __('locale.' . $menu->name) }}</span>
                                     @if (isset($menu->badge))

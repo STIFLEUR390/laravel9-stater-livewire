@@ -42,10 +42,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/edit/{id}', EditPermissionComponent::class)->name('edit');
     });
 
-    Route::middleware(['crud role'])->prefix('roles')->name('roles.')->group(function() {
+    Route::middleware(['permission:crud role'])->prefix('roles')->name('roles.')->group(function() {
         Route::get('/', RoleComponent::class)->name('index');
         Route::get('/create', CreateRoleComponent::class)->name('create');
-        Route::get('/edit', EditRoleComponent::class)->name('edit');
+        Route::get('/edit/{id}', EditRoleComponent::class)->name('edit');
     });
 
 

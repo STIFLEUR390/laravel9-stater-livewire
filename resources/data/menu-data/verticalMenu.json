@@ -19,17 +19,17 @@
             "permissions": "crud permission",
             "submenu": [
               {
-                "url": "/permissions",
+                "url": "permissions.index",
                 "name": "All permissions",
                 "icon": "circle",
-                "slug": "all-permissions",
+                "slug": "permissions.index",
                 "permissions": "crud permission"
               },
               {
-                "url": "/permissions/create",
+                "url": "permissions.create",
                 "name": "Create permission",
                 "icon": "circle",
-                "slug": "create-permission",
+                "slug": "permissions.create",
                 "permissions": "crud permission"
               }
             ]
@@ -38,20 +38,20 @@
             "name": "Roles",
             "icon": "shield",
             "slug": "",
-            "permissions": "crud role",
+            "permissions": "crud permission",
             "submenu": [
               {
-                "url": "roles",
+                "url": "roles.index",
                 "name": "All roles",
                 "icon": "circle",
-                "slug": "all-roles",
+                "slug": "roles.index",
                 "permissions": "crud role"
               },
               {
-                "url": "roles/create",
+                "url": "roles.create",
                 "name": "Create a role",
                 "icon": "circle",
-                "slug": "create-a-role",
+                "slug": "roles.create",
                 "permissions": "crud role"
               }
             ]

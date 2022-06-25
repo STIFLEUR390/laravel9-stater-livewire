@@ -25,7 +25,7 @@ class CreatePermissionComponent extends Component
     public function render()
     {
         $breadcrumbs = [
-            ['link' => 'permission', 'name' => __('Permissions')], ['name' => __('Create')]
+            ['link' => 'permissions.index', 'name' => __('Permissions')], ['name' => __('Create')]
         ];
         return view('livewire.back.permission.create-permission-component')->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
     }

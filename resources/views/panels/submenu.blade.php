@@ -7,7 +7,7 @@
         @foreach ($menu as $submenu)
             @if ($subAuthUser->hasAnyPermission(explode('|', $submenu->permissions)))
                 <li class="{{ $submenu->slug === Route::currentRouteName() ? 'active' : '' }}">
-                    <a href="{{ isset($submenu->url) ? url($submenu->url) : '#' }}" class="d-flex align-items-center" target="{{ isset($submenu->newTab) && $submenu->newTab === true ? '_blank' : '_self' }}">
+                    <a href="{{ isset($submenu->url) ? route($submenu->url) : '#' }}" class="d-flex align-items-center" target="{{ isset($submenu->newTab) && $submenu->newTab === true ? '_blank' : '_self' }}">
                         @if (isset($submenu->icon))
                             <i data-feather="{{ $submenu->icon }}"></i>
                         @endif

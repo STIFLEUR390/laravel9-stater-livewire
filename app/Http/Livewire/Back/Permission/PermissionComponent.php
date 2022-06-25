@@ -23,7 +23,7 @@ class PermissionComponent extends Component
     public function render()
     {
         $breadcrumbs = [
-            ['link' => 'permission', 'name' => __('Permissions')]
+            ['link' => 'permissions.index', 'name' => __('Permissions')]
         ];
 
         if (!empty($this->search)) {

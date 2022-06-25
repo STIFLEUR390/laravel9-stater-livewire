@@ -64,6 +64,8 @@
             </div>
           @endif
 
+          <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
           <form class="auth-login-form mt-2" method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-1">

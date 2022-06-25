@@ -35,9 +35,9 @@ class EditPermissionComponent extends Component
     public function render()
     {
         $breadcrumbs = [
-            ['link' => 'permission', 'name' => __('Permissions')], ['name' => __('Edit')]
+            ['link' => 'permissions.index', 'name' => __('Permissions')], ['name' => __('Edit')]
         ];
-        $roles = Role::all();
+        $roles = Role::orderBy('name')->get();
         $permission = Permission::findById($this->permission_id);
         return view('livewire.back.permission.edit-permission-component', compact('roles', 'permission'))->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
     }
@@ -66,7 +66,7 @@ class EditPermissionComponent extends Component
         $permission = Permission::findByName($this->name);
 
         if ($permission->hasRole($this->role_name)) {
-            $this->addError('email', __('The role has already been given to :permision permision', ['permision' => $permission->name]));
+            $this->addError('assign_role', __('The role has already been given to :permision permision', ['permision' => $permission->name]));
             $this->emit('swal:alert', [
                 'icon' => 'warning',
                 'title' => config('dev-master.name'),
