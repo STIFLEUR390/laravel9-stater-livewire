@@ -8,6 +8,6 @@ class SettingComponent extends Component
 {
     public function render()
     {
-        return view('livewire.back.app.setting-component');
+        return view('livewire.back.app.setting-component')->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
     }
 }

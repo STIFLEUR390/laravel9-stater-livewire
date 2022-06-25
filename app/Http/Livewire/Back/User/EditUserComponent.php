@@ -8,6 +8,6 @@ class EditUserComponent extends Component
 {
     public function render()
     {
-        return view('livewire.back.user.edit-user-component');
+        return view('livewire.back.user.edit-user-component')->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
     }
 }

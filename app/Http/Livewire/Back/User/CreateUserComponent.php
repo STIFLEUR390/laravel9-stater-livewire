@@ -8,6 +8,9 @@ class CreateUserComponent extends Component
 {
     public function render()
     {
-        return view('livewire.back.user.create-user-component');
+        $breadcrumbs = [
+            ['link'=>"users.create",'name'=> __('Users list')], ['name'=> __('Create')]
+        ];
+        return view('livewire.back.user.create-user-component')->extends('layouts.contentLayoutMaster', ['breadcrumbs' => $breadcrumbs])->section('content');
     }
 }

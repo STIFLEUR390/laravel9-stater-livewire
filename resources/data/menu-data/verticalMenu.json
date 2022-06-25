@@ -18,20 +18,20 @@
             "slug": "",
             "permissions": "crud permission",
             "submenu": [
-              {
-                "url": "permissions.index",
-                "name": "All permissions",
-                "icon": "circle",
-                "slug": "permissions.index",
-                "permissions": "crud permission"
-              },
-              {
-                "url": "permissions.create",
-                "name": "Create permission",
-                "icon": "circle",
-                "slug": "permissions.create",
-                "permissions": "crud permission"
-              }
+                {
+                    "url": "permissions.index",
+                    "name": "All permissions",
+                    "icon": "circle",
+                    "slug": "permissions.index",
+                    "permissions": "crud permission"
+                },
+                {
+                    "url": "permissions.create",
+                    "name": "Create permission",
+                    "icon": "circle",
+                    "slug": "permissions.create",
+                    "permissions": "crud permission"
+                }
             ]
         },
         {
@@ -40,20 +40,47 @@
             "slug": "",
             "permissions": "crud permission",
             "submenu": [
-              {
-                "url": "roles.index",
-                "name": "All roles",
-                "icon": "circle",
-                "slug": "roles.index",
-                "permissions": "crud role"
-              },
-              {
-                "url": "roles.create",
-                "name": "Create a role",
-                "icon": "circle",
-                "slug": "roles.create",
-                "permissions": "crud role"
-              }
+                {
+                    "url": "roles.index",
+                    "name": "All roles",
+                    "icon": "circle",
+                    "slug": "roles.index",
+                    "permissions": "crud role"
+                },
+                {
+                    "url": "roles.create",
+                    "name": "Create a role",
+                    "icon": "circle",
+                    "slug": "roles.create",
+                    "permissions": "crud role"
+                }
+            ]
+        },
+        {
+            "navheader": "User Management",
+            "slug": "",
+            "permissions": "show users|create users|edit users|delete users"
+        },
+        {
+            "name": "Users",
+            "icon": "users",
+            "slug": "",
+            "permissions": "show users|create users|edit users|delete users",
+            "submenu": [
+                {
+                    "url": "users.index",
+                    "name": "All users",
+                    "icon": "circle",
+                    "slug": "users.index",
+                    "permissions": "show users|create users|edit users|delete users"
+                },
+                {
+                    "url": "users.create",
+                    "name": "Create a user",
+                    "icon": "circle",
+                    "slug": "users.create",
+                    "permissions": "create users"
+                }
             ]
         }
     ]

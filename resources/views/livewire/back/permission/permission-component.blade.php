@@ -7,7 +7,7 @@
             <input type="text" class="form-control search-product" id="shop-search" wire:model='search' placeholder="@lang('Search a permission')" aria-label="Search..." aria-describedby="shop-search" />
             <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
         </div>
-        <div class="table-responsive">
+        <div @if (count($permissions) > 4) class="table-responsive" @endif>
             <table class="table">
                 <thead>
                     <tr>

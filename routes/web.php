@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{LanguageController, StaterkitController};
 use App\Http\Livewire\Back\Permission\{CreatePermissionComponent, EditPermissionComponent, PermissionComponent};
 use App\Http\Livewire\Back\Role\{CreateRoleComponent, EditRoleComponent, RoleComponent};
+use App\Http\Livewire\Back\User\{CreateUserComponent, EditUserComponent, ShowUserComponent, UserComponent};
 
 /*
 |--------------------------------------------------------------------------
@@ -39,13 +40,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(['permission:crud permission'])->prefix('permissions')->name('permissions.')->group(function() {
         Route::get('/', PermissionComponent::class)->name('index');
         Route::get('/create', CreatePermissionComponent::class)->name('create');
-        Route::get('/edit/{id}', EditPermissionComponent::class)->name('edit');
+        Route::get('/{id}/edit', EditPermissionComponent::class)->name('edit');
     });
 
     Route::middleware(['permission:crud role'])->prefix('roles')->name('roles.')->group(function() {
         Route::get('/', RoleComponent::class)->name('index');
         Route::get('/create', CreateRoleComponent::class)->name('create');
-        Route::get('/edit/{id}', EditRoleComponent::class)->name('edit');
+        Route::get('/{id}/edit', EditRoleComponent::class)->name('edit');
+    });
+
+    Route::prefix('users')->name('users.')->group(function() {
+        Route::get('/', UserComponent::class)->name('index')->middleware('permission:show users');
+        Route::get('/create', CreateUserComponent::class)->name('create')->middleware('permission:create users');
+        Route::get('/{id}/edit', EditUserComponent::class)->name('edit')->middleware('permission:edit users');
+        Route::get('/{id}/show', ShowUserComponent::class)->name('show')->middleware('permission:show users');
     });
 
 
