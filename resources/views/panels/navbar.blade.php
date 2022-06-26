@@ -105,19 +105,19 @@
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                <h6 class="dropdown-header">Manage Profile</h6>
+                <h6 class="dropdown-header">@lang("Manage Profile")</h6>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item"
                     href="{{ Route::has('profile.show') ? route('profile.show') : 'javascript:void(0)' }}">
-                    <i class="me-50" data-feather="user"></i> Profile
+                    <i class="me-50" data-feather="user"></i> @lang('Profile')
                 </a>
                 @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <a class="dropdown-item" href="{{ route('api-tokens.index') }}">
-                        <i class="me-50" data-feather="key"></i> API Tokens
+                        <i class="me-50" data-feather="key"></i> @lang("API Tokens")
                     </a>
                 @endif
-                <a class="dropdown-item" href="#">
-                    <i class="me-50" data-feather="settings"></i> Settings
+                <a class="dropdown-item" href="{{ route('settings') }}">
+                    <i class="me-50" data-feather="settings"></i> @lang("Settings")
                 </a>
 
                 @if (Auth::User() && Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -151,7 +151,7 @@
                 @if (Auth::check())
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="me-50" data-feather="power"></i> Logout
+                        <i class="me-50" data-feather="power"></i> @lang('Logout')
                     </a>
                     <form method="POST" id="logout-form" action="{{ route('logout') }}">
                         @csrf
@@ -159,7 +159,7 @@
                 @else
                     <a class="dropdown-item"
                         href="{{ Route::has('login') ? route('login') : 'javascript:void(0)' }}">
-                        <i class="me-50" data-feather="log-in"></i> Login
+                        <i class="me-50" data-feather="log-in"></i> @lang('Login')
                     </a>
                 @endif
             </div>

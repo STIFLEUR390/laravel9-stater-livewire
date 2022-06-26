@@ -40,17 +40,17 @@ class UserComponent extends Component
             $users = User::withTrashed()->role($this->role)->Where(function($query) {
                 $query->where('name', 'like', '%'.$this->search.'%')
                       ->orWhere('email', 'like', '%'.$this->search.'%');
-            })->paginate(7);
+            })->orderBy("name")->paginate(7);
         } else if (!empty($this->search)) {
             $users = User::withTrashed()->Where(function($query) {
                 $query->where('name', 'like', '%'.$this->search.'%')
                       ->orWhere('email', 'like', '%'.$this->search.'%');
-            })->paginate(7);
+            })->orderBy("name")->paginate(7);
         } else if (!empty($this->role)) {
-            $users = User::withTrashed()->role($this->role)->paginate(7);
+            $users = User::withTrashed()->role($this->role)->orderBy("name")->paginate(7);
         }
         else {
-            $users = User::withTrashed()->paginate(7);
+            $users = User::withTrashed()->orderBy("name")->paginate(7);
         }
 
 

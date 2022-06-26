@@ -3,6 +3,7 @@
 use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{LanguageController, StaterkitController};
+use App\Http\Livewire\Back\App\SettingComponent;
 use App\Http\Livewire\Back\Permission\{CreatePermissionComponent, EditPermissionComponent, PermissionComponent};
 use App\Http\Livewire\Back\Role\{CreateRoleComponent, EditRoleComponent, RoleComponent};
 use App\Http\Livewire\Back\User\{CreateUserComponent, EditUserComponent, ShowUserComponent, UserComponent};
@@ -56,5 +57,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{id}/show', ShowUserComponent::class)->name('show')->middleware('permission:show users');
     });
 
+    Route::name('settings')->get('settings', SettingComponent::class)->middleware(['permission:setting']);
 
 });
